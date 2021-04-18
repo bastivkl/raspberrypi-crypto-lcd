@@ -123,7 +123,7 @@ while True:
     request_success = False
     while not request_success:
         try:
-            request = http.request('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=Bitcoin%2CDogecoin%2CSTEEM%2CSTEEM-DOLLARS%2CHIVE%2CHIVE_Dollar&vs_currencies=' + currency["code"] + '&include_24hr_change=true')
+            request = http.request('GET', 'https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd' + currency["code"])
             api_data = json.loads(request.data)
             request_success = True
         except:
