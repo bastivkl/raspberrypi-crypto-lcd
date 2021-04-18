@@ -31,7 +31,7 @@ mylcd = I2C_LCD_driver.lcd()
 # Others - Add font to below font array (draw here -> https://omerk.github.io/lcdchargen/) and then copy all of the lines starting with 0, and replace the lines in the marked array,
 # Then use symbol \5 for your currency.
 
-currency = {"code":"gbp", "symbol": "\4"}
+currency = {"code":"usd", "symbol": "$"}
 
 font = [
     [
@@ -130,12 +130,5 @@ while True:
             request_success = False
             sleep(5)
     sleep(10)
-    mylcd.lcd_display_string(f'''\0\1 {currency["symbol"]}{api_data["steem"][currency["code"]]:.3f} {api_data["steem"][currency["code"] + "_24h_change"]:+.1f}%     ''',1)
-    mylcd.lcd_display_string(f'''\2\3 {currency["symbol"]}{api_data["hive"][currency["code"]]:.3f} {api_data["hive"][currency["code"] + "_24h_change"]:+.1f}%     ''',2)
-    sleep(10)
-    mylcd.lcd_display_string(f'''\0\1$ {currency["symbol"]}{api_data["steem-dollars"][currency["code"]]:.3f} {api_data["steem-dollars"][currency["code"] + "_24h_change"]:+.1f}%     ''',1)
-    mylcd.lcd_display_string(f'''\2\3$ {currency["symbol"]}{api_data["hive_dollar"][currency["code"]]:.3f} {api_data["hive_dollar"][currency["code"] + "_24h_change"]:+.1f}%     ''',2)
-    sleep(10)
-    mylcd.lcd_display_string(f'''\6 {currency["symbol"]}{api_data["bitcoin"][currency["code"]]:.0f} {api_data["bitcoin"][currency["code"] + "_24h_change"]:+.1f}%     ''',1)
     mylcd.lcd_display_string(f'''k\7 {currency["symbol"]}{api_data["dogecoin"][currency["code"]] * 1000:.3f} {api_data["dogecoin"][currency["code"] + "_24h_change"]:+.1f}%     ''',2)
     
